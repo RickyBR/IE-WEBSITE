@@ -9,7 +9,7 @@ class ProgramController extends Controller
 {
     public function index() 
     {
-        $programs = Program::orderBy('id', 'title', 'description')->get();
+        $programs = Program::get();
         $total = Program::count();
         return view('admin.program.home', compact(['programs', 'total']));
     }

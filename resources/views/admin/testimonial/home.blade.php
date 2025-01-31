@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{__('Admin Product') }}
+            {{__('Admin Testimonial') }}
         </h2>
 </x-slot>
 
@@ -11,8 +11,8 @@
 
         <div class="p-6 text-gray-900">
             <div class="d-flex align-items-center justify-content-between">
-                <h1 class="mb-0">List Product</h1>
-                <a href="{{ route('admin/products/create') }}" class="btn btn-primary">Add Product</a>
+                <h1 class="mb-0">List Testimonial</h1>
+                <a href="{{ route('admin/testimonials/create') }}" class="btn btn-primary">Add Testimonial</a>
             </div>
             <hr/>
             @if(Session::has('success'))
@@ -25,32 +25,27 @@
                 <thead class="table-primary">
                     <tr>
                         <th>#</th>
-                        <th>Program</th>
-                        <th>Title</th>
-                        <th>Category</th>
-                        <th>Price</th>
+                        <th>Name</th>
+                        <th>Description</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @forelse ($products as $product)
+                    @forelse ($testimonials as $testimonial)
                     <tr>
                         <td class="align-middle"> {{$loop->iteration}}</td>
-                        <td class="align-middle">
-                            {{ $product->program ? $product->program->title : 'No Program' }}
-                        </td>                        <td class="align-middle"> {{$product->title}}</td>
-                        <td class="align-middle"> {{$product->category}}</td>
-                        <td class="align-middle"> {{$product->price}}</td>
+                        <td class="align-middle"> {{$testimonial->name}}</td>
+                        <td class="align-middle"> {{$testimonial->description}}</td>
                         <td class="align-middle">
                             <div class="btn-group" role="group" aria-label="Basic Example">
-                                <a href="{{ route('admin/products/edit', ['id'=>$product->id]) }}" type="button" class="btn btn-secondary">Edit</a>
-                                <a href="{{ route('admin/products/delete', ['id'=>$product->id])}}" type="button" class="btn btn-danger">Delete</a>
+                                <a href="{{ route('admin/testimonials/edit', ['id'=>$testimonial->id]) }}" type="button" class="btn btn-secondary">Edit</a>
+                                <a href="{{ route('admin/testimonials/delete', ['id'=>$testimonial->id])}}" type="button" class="btn btn-danger">Delete</a>
                             </div>
                         </td>
                     </tr>
                     @empty
                     <tr>
-                        <td class="text-center" colspan="5">Product not found</td>
+                        <td class="text-center" colspan="5">Testimonial not found</td>
                     </tr>
                     @endforelse
                 </tbody>

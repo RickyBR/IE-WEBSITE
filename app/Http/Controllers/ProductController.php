@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\Program;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -19,26 +20,28 @@ class ProductController extends Controller
 
     public function create() 
     {
-        return view('admin.product.create');
+        $programs = Program::all(); 
+        return view('admin.product.create', compact('programs'));
     }
 
     public function save(Request $request) {
         $validation = $request->validate([
-            'title' => 'required',
-            'category' => 'required',
-            'price' => 'required|integer',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+            'program_id' => 'required|exists:programs,id', // Validasi program_id harus ada di tabel programs
+            'title' =>'required',
+            'category' =>'required',
+            'price' =>'required|numeric',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048'
         ]);
     
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $imageName = time().'.'.$image->getClientOriginalExtension();
-            $image->move(public_path('uploads/products'), $imageName);
-            $validation['image'] = 'uploads/products/'.$imageName;
+            $image->move(public_path('uploads/programs'), $imageName);
+            $validation['image'] = 'uploads/programs/'.$imageName;
         }
     
-        $data = Product::create($validation);
-        
+        $data = Product::create($validation); // Simpan data ke tabel products
+    
         if ($data) {
             session()->flash('success', 'Product Added Successfully');
             return redirect(route('admin/products'));
@@ -47,52 +50,52 @@ class ProductController extends Controller
             return redirect(route('admin.products/create'));
         }
     }
+    
 
     public function edit($id) 
     {
-        $products = Product::findOrFail($id);
-        return view('admin.product.update', compact('products'));
+        $product = Product::findOrFail($id);
+        $programs = Program::all(); 
+        return view('admin.product.update', compact('product', 'programs'));
     }
 
     public function update(Request $request, $id) {
-        $products = Product::findOrFail($id);
+        $product = Product::findOrFail($id);
     
         // Validasi input
         $validation = $request->validate([
             'title' => 'required',
             'category' => 'required',
             'price' => 'required|integer',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048' // Validasi file gambar
+            'program_id' => 'required|exists:programs,id', // Pastikan program_id valid
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
     
         // Update data produk
-        $products->title = $validation['title'];
-        $products->category = $validation['category'];
-        $products->price = $validation['price'];
+        $product->title = $validation['title'];
+        $product->category = $validation['category'];
+        $product->price = $validation['price'];
+        $product->program_id = $validation['program_id']; // Update program_id
     
         // Cek apakah ada file gambar yang diunggah
         if ($request->hasFile('image')) {
-            // Hapus gambar lama jika ada
-            if ($products->image && file_exists(public_path($products->image))) {
-                unlink(public_path($products->image));
+            if ($product->image && file_exists(public_path($product->image))) {
+                unlink(public_path($product->image));
             }
     
-            // Simpan gambar baru
             $image = $request->file('image');
             $imageName = time().'.'.$image->getClientOriginalExtension();
             $image->move(public_path('uploads/products'), $imageName);
-            $products->image = 'uploads/products/'.$imageName; // Simpan path gambar
+            $product->image = 'uploads/products/'.$imageName;
         }
     
         // Simpan perubahan
-        $data = $products->save();
-    
-        if ($data) {
+        if ($product->save()) {
             session()->flash('success', 'Product Updated Successfully');
             return redirect(route('admin/products'));
         } else {
             session()->flash('error', 'Some problem occurred');
-            return redirect(route('admin/products/update', $id));
+            return redirect(route('admin/products/edit', $id));
         }
     }
 
