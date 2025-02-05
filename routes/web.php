@@ -34,6 +34,10 @@ Route::get('/projects', function () {
     return view('pages.project');
 });
 
+Route::get('/project-detail', function () {
+    return view('pages.project_detail');
+});
+
 Route::get('/team', function () {
     return view('pages.team');
 });

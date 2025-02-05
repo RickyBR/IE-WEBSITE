@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app_landing')
 
 @section('title', 'Our Blog')
 
