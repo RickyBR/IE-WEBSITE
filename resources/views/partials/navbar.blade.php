@@ -16,7 +16,7 @@
                     <a href="{{ url('/projects') }}" class="nav-item nav-link {{ Request::is('projects') ? 'active' : '' }}">Programs</a>
 
                     <!-- Services -->
-                    <a href="{{ url('/services') }}" class="nav-item nav-link {{ Request::is('services') ? 'active' : '' }}">Instructors</a>
+                    <a href="{{ url('/instructor') }}" class="nav-item nav-link {{ Request::is('services') ? 'active' : '' }}">Instructors</a>
 
                     <!-- Projects -->
                     <a href="{{ url('/projects') }}" class="nav-item nav-link {{ Request::is('projects') ? 'active' : '' }}">Testimonial</a>

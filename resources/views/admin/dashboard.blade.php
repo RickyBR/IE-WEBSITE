@@ -18,9 +18,17 @@
 
                     {{-- Products --}}
                     <div class="bg-green-500 p-6 rounded-lg shadow-md text-white">
-                        <h2 class="text-lg font-semibold">Products</h2>
-                        <p>Manage and update products.</p>
-                        <a href="products" class="mt-2 inline-block bg-white text-green-500 px-4 py-2 rounded shadow">
+                        <h2 class="text-lg font-semibold">Class</h2>
+                        <p>Manage and update classes.</p>
+                        <a href="classes" class="mt-2 inline-block bg-white text-green-500 px-4 py-2 rounded shadow">
+                            View
+                        </a>
+                    </div>
+
+                    <div class="bg-orange-500 p-6 rounded-lg shadow-md text-white">
+                        <h2 class="text-lg font-semibold">Class Modules</h2>
+                        <p>Manage and update modules.</p>
+                        <a href="modules" class="mt-2 inline-block bg-white text-green-500 px-4 py-2 rounded shadow">
                             View
                         </a>
                     </div>

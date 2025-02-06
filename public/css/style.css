@@ -478,7 +478,7 @@
 /*** Team Start ***/
 
 .team-item {
-    border-top: 30px solid var(--bs-secondary) !important;
+    border-top: 30px solid var(--bs-primary) !important;
     background: rgba(239, 239, 241, 0.8);
 }
 
@@ -488,7 +488,7 @@
     content: "";
     position: relative;
     top: -101px;
-    background: var(--bs-secondary);
+    background: var(--bs-primary);
     clip-path: polygon(50% 50%, 100% 50%, 50% 100%, 0% 50%);
     padding: 60px;
     opacity: 1;
@@ -506,7 +506,7 @@
 }
 
 .team-img img {
-    border: 10px solid var(--bs-secondary);
+    border: 10px solid var(--bs-primary);
     transition: .5s;
 }
 
@@ -517,7 +517,7 @@
 
 .team-item:hover .team-img img {
     transform: scale(1.05);
-    border: 10px solid var(--bs-secondary);
+    border: 10px solid var(--bs-primary);
 }
 
 .team-carousel .owl-stage {
@@ -539,7 +539,7 @@
     height: 56px;
     border-radius: 56px;
     margin-left: 15px;
-    background: var(--bs-secondary);
+    background: var(--bs-primary);
     color: var(--bs-white);
     display: flex;
     align-items: center;
@@ -657,7 +657,7 @@
 }
 
 .footer .hightech-link a:hover {
-    background: var(--bs-secondary);
+    background: var(--bs-primary);
     border: 0;
 }
 

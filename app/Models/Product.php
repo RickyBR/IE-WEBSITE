@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     use HasFactory,HasUuids;
-    protected $table = 'products';
+    protected $table = 'classes';
     protected $fillable = [
         'program_id',
         'title', 

@@ -5,8 +5,8 @@
 
         <div class="p-6 text-gray-900">
             <div class="d-flex align-items-center justify-content-between">
-                <h1 class="mb-0">List Product</h1>
-                <a href="{{ route('admin/products/create') }}" class="btn btn-primary">Add Product</a>
+                <h1 class="mb-0">List Class</h1>
+                <a href="{{ route('admin/classes/create') }}" class="btn btn-primary">Add Product</a>
             </div>
             <hr/>
             @if(Session::has('success'))
@@ -27,7 +27,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @forelse ($products as $product)
+                    @forelse ($classes as $product)
                     <tr>
                         <td class="align-middle"> {{$loop->iteration}}</td>
                         <td class="align-middle">
@@ -37,8 +37,8 @@
                         <td class="align-middle"> {{$product->price}}</td>
                         <td class="align-middle">
                             <div class="btn-group" role="group" aria-label="Basic Example">
-                                <a href="{{ route('admin/products/edit', ['id'=>$product->id]) }}" type="button" class="btn btn-secondary">Edit</a>
-                                <a href="{{ route('admin/products/delete', ['id'=>$product->id])}}" type="button" class="btn btn-danger">Delete</a>
+                                <a href="{{ route('admin/classes/edit', ['id'=>$product->id]) }}" type="button" class="btn btn-secondary">Edit</a>
+                                <a href="{{ route('admin/classes/delete', ['id'=>$product->id])}}" type="button" class="btn btn-danger">Delete</a>
                             </div>
                         </td>
                     </tr>

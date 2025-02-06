@@ -11,15 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('instructors', function (Blueprint $table) {
+        Schema::create('class_modules', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('name')->nullable();
-            $table->string('institution')->nullable();
-            $table->string('experience')->nullable();
-            $table->string('social_media')->nullable();
-            $table->string('image')->nullable();
+            $table->uuid('class_id');
+            $table->string('title');
+            $table->string('content');
             $table->timestamps();
             $table->softDeletes();
+
+            $table->foreign('class_id')->references('id')->on('classes')->onDelete('cascade');
+
         });
     }
 
@@ -28,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('instructors');
+        Schema::dropIfExists('class_modules');
     }
 };

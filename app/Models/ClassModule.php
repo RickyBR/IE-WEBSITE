@@ -6,19 +6,19 @@ use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Program extends Model
+class ClassModule extends Model
 {
     use HasFactory, HasUuids;
-    protected $table = 'programs';
+
+    protected $table = 'class_modules';
     protected $fillable = [
-        'title', 
-        'description',
-        'image'
+        'class_id',
+        'title',
+        'content'
     ];
 
-
-    public function products()
+    public function product() 
     {
-        return $this->hasMany(Product::class, 'program_id');
+        return $this->belongsTo(Product::class, 'class_id');
     }
 }

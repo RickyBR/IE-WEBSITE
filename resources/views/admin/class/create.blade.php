@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{__('Create Product') }}
+            {{__('Create Class') }}
         </h2>
 </x-slot>
 
@@ -10,7 +10,7 @@
         <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
 
         <div class="p-6 text-gray-900">
-            <h1 class="mb-0">Add Product</h1>
+            <h1 class="mb-0">Add Class</h1>
             <hr/>
 
             @if (session()->has('error'))
@@ -19,10 +19,10 @@
             </div>
             @endif
 
-            <p><a href="{{ route('admin/products') }}" class="btn btn-primary">Back to Home</a>
+            <p><a href="{{ route('admin/classes') }}" class="btn btn-primary">Back to Home</a>
             </p>
 
-            <form action="{{ route('admin/products/save')}}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('admin/classes/save')}}" method="POST" enctype="multipart/form-data">
                 @csrf
             
                 <div class="row">
@@ -62,6 +62,15 @@
                     <div class="col mb-3">
                         <input type="text" name="price" class="form-control" placeholder="Price">
                         @error('price')
+                        <span class="text-danger">{{$message}}</span>
+                        @enderror
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col mb-3">
+                        <input type="text" name="description" class="form-control" placeholder="Description">
+                        @error('description')
                         <span class="text-danger">{{$message}}</span>
                         @enderror
                     </div>

@@ -18,7 +18,7 @@
     </div>
     <!-- Page Header End -->
 
-
+{{-- 
     <!-- Fact Start -->
     <div class="container-fluid bg-secondary py-5">
         <div class="container">
@@ -50,7 +50,7 @@
             </div>
         </div>
     </div>
-    <!-- Fact End -->
+    <!-- Fact End --> --}}
 
 
     <!-- Contact Start -->

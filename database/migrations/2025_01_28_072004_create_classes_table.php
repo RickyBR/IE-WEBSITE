@@ -11,12 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('products', function (Blueprint $table) {
+        Schema::create('classes', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->uuid('program_id');
             $table->string('title');
             $table->string('category');
             $table->integer('price');
+            $table->string('description');
             $table->string('image')->nullable();
             $table->timestamps();
             $table->softDeletes();
