@@ -24,24 +24,17 @@ class ClassModuleController extends Controller
 
     public function save(Request $request) {
         $validation = $request->validate([
-            'program_id' => 'required|exists:programs,id', // Validasi program_id harus ada di tabel programs
+            'class_id' => 'required|exists:classes,id', // Validasi program_id harus ada di tabel programs
             'title' =>'required',
             'content' =>'required',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048'
         ]);
     
-        if ($request->hasFile('image')) {
-            $image = $request->file('image');
-            $imageName = time().'.'.$image->getClientOriginalExtension();
-            $image->move(public_path('uploads/programs'), $imageName);
-            $validation['image'] = 'uploads/programs/'.$imageName;
-        }
     
         $data = ClassModule::create($validation); // Simpan data ke tabel modules
     
         if ($data) {
-            session()->flash('success', 'Product Added Successfully');
-            return redirect(route('admin/classes'));
+            session()->flash('success', 'Module Added Successfully');
+            return redirect(route('admin/modules'));
         } else {
             session()->flash('error', 'Some problem occurred');
             return redirect(route('admin.modules/create'));
@@ -52,8 +45,8 @@ class ClassModuleController extends Controller
     public function edit($id) 
     {
         $module = ClassModule::findOrFail($id);
-        $products = Product::all(); 
-        return view('admin.module.update', compact('product', 'programs'));
+        $classes = Product::all(); 
+        return view('admin.module.update', compact('module', 'classes'));
     }
 
     public function update(Request $request, $id) {
@@ -64,25 +57,12 @@ class ClassModuleController extends Controller
             'title' => 'required',
             'content' => 'required',
             'class_id' => 'required|exists:classes,id', // Pastikan program_id valid
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
     
         // Update data produk
         $module->title = $validation['title'];
         $module->content = $validation['content'];
-        $module->program_id = $validation['program_id']; // Update program_id
-    
-        // Cek apakah ada file gambar yang diunggah
-        if ($request->hasFile('image')) {
-            if ($module->image && file_exists(public_path($module->image))) {
-                unlink(public_path($module->image));
-            }
-    
-            $image = $request->file('image');
-            $imageName = time().'.'.$image->getClientOriginalExtension();
-            $image->move(public_path('uploads/classes'), $imageName);
-            $module->image = 'uploads/classes/'.$imageName;
-        }
+        $module->class_id = $validation['class_id']; // Update program_id
     
         // Simpan perubahan
         if ($module->save()) {

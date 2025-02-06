@@ -29,11 +29,11 @@
                     <div class="col mb-3">
                         <label for="class_id" class="form-label">Module</label>
                         <select name="class_id" class="form-control">
-                        <option value="">-- Select Module --</option>
-            @foreach($modules as $module)
-                <option value="{{ $module->id }}" 
-                    {{ $module->class_id == $module->id ? 'selected' : '' }}>
-                    {{ $module->title }}
+                        <option value="">-- Select Class --</option>
+            @foreach($classes as $class)
+                <option value="{{ $class->id }}" 
+                    {{ $class->class_id == $class->id ? 'selected' : '' }}>
+                    {{ $class->title }}
                 </option>
             @endforeach
         </select>
@@ -59,18 +59,7 @@
                         @enderror
                     </div>
                 </div>
-                <div clas="row ">
-                    <div class="col mb-3">
-                        <img src="{{ asset($module->image) }}" alt="{{ $module->title }}" width="150">
-
-                        <input type="file" name="image" class="form-control">
-                        @error('price')
-                        <span class="text-danger">{{$message}}</span>
-                        @enderror
-                    </div>
-                </div>
-        
-
+       
                 <div class="row">
                     <div class="d-grid">
                         <button class="btn btn-warning">Submit</button>

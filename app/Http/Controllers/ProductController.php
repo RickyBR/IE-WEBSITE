@@ -29,6 +29,7 @@ class ProductController extends Controller
             'program_id' => 'required|exists:programs,id', // Validasi program_id harus ada di tabel programs
             'title' =>'required',
             'category' =>'required',
+            'description' =>'required',
             'price' =>'required|numeric',
             'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048'
         ]);

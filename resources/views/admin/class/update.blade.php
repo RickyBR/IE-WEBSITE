@@ -53,7 +53,7 @@
                 </div>
                 <div clas="row ">
                     <div class="col mb-3">
-                        <input type="text" name="category" class="form-control" placeholder="Category" value="{{$class->category}}">
+                        <textarea id="description" name="description">{!! old('description', $class->description ?? '') !!}</textarea> 
                         @error('category')
                         <span class="text-danger">{{$message}}</span>
                         @enderror

@@ -69,8 +69,8 @@
 
                 <div class="row">
                     <div class="col mb-3">
-                        <input type="text" name="description" class="form-control" placeholder="Description">
-                        @error('description')
+                        <textarea id="description" name="description">{!! old('description', $class->description ?? '') !!}</textarea> 
+                         @error('description')
                         <span class="text-danger">{{$message}}</span>
                         @enderror
                     </div>

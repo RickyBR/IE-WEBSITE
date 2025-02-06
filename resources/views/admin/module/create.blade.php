@@ -51,29 +51,13 @@
             
                 <div class="row">
                     <div class="col mb-3">
-                        <input type="text" name="category" class="form-control" placeholder="Category">
-                        @error('category')
-                        <span class="text-danger">{{$message}}</span>
-                        @enderror
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col mb-3">
-                        <input type="text" name="description" class="form-control" placeholder="Description">
-                        @error('description')
+                        <input type="text" name="content" class="form-control" placeholder="Content">
+                        @error('content')
                         <span class="text-danger">{{$message}}</span>
                         @enderror
                     </div>
                 </div>
             
-                <div class="row">
-                    <div class="col mb-3">
-                        <input type="file" name="image">
-                        @error('file')
-                        <span class="text-danger">{{$message}}</span>
-                        @enderror
-                    </div>
-                </div>
             
                 <div class="row">
                     <div class="d-grid">

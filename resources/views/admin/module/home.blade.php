@@ -30,7 +30,7 @@
                     <tr>
                         <td class="align-middle"> {{$loop->iteration}}</td>
                         <td class="align-middle">
-                            {{ $module->class ? $module->class->title : 'No Program' }}
+                            {{ $module->product ? $module->product->title : 'No Class' }}
                         </td>                        <td class="align-middle"> {{$module->title}}</td>
                         <td class="align-middle"> {{$module->content}}</td>
                         <td class="align-middle">
