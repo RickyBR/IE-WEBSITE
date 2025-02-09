@@ -23,4 +23,10 @@ class Product extends Model
     {
         return $this->belongsTo(Program::class, 'program_id');
     }
+
+    public function modules()
+    {
+        return $this->hasMany(ClassModule::class, 'class_id');
+    }
+
 }

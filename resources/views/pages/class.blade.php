@@ -44,14 +44,16 @@
                 <h1>Program Unggulan Kami!</h1>
             </div>
             <div class="row g-4">
+                @forelse ($products as $product)
+
                 <div class="col-md-4 col-lg-3">
                     <div class="blog-item  rounded p-3 text-center" style="background-color: #4d535e28;">
                         <div class="d-flex justify-content-center">
-                            <img src="img/blog-1.jpg" class="img-fluid rounded" style="width:100%;height:80%">
+                            <img src="/{{$product->image}}" class="img-fluid rounded" style="width:100%;height:80%">
                         </div>
                         <div class="blog-content text-start mt-3">
-                            <h5>IELTS Preparation Class Private Program</h5>
-                            <span class="card-text fw-bold ">Rp 3.195.000</span>
+                            <h5>{{$product->title}}</h5>
+                            <span class="card-text fw-bold ">{{$product->price}}</span>
                             <div class="rounded p-2 mt-1 d-flex align-items-center" style="background-color: white;">
                                 <div class="row g-2">
                                     <div class="col-auto d-flex align-items-center">
@@ -64,74 +66,15 @@
                                 
                             </div>
                             <div class="d-flex justify-content-start mt-3">
-                                <a href="{{ url('/project-detail') }}" class="btn btn-primary">Read More</a>
+                                <a href="{{ url('/class/' . $product->id.'/detail') }}" class="btn btn-primary">Read More</a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 col-lg-3">
-                    <div class="blog-item  rounded p-3 text-center" style="background-color: #4d535e28;">
-                        <div class="d-flex justify-content-center">
-                            <img src="img/blog-1.jpg" class="img-fluid rounded" style="width:100%;height:80%">
-                        </div>
-                        <div class="blog-content text-start mt-3">
-                            <h5>IELTS Preparation Class Private Program</h5>
-                            <span class="card-text fw-bold ">Rp 3.195.000</span>
-                            <div class="rounded p-2 mt-1 d-flex align-items-center" style="background-color: white;">
-                                <div class="row g-2">
-                                    <div class="col-auto d-flex align-items-center">
-                                        <i class="fas fa-file-alt me-2"></i> <span>10 Lessons</span>
-                                    </div>
-                                    <div class="col-auto d-flex align-items-center">
-                                        <i class="fas fa-clock me-2"></i> <span>20 Pertemuan</span>
-                                    </div>
-                                </div>
-                                
-                            </div>
-                            <div class="d-flex justify-content-start mt-3">
-                                <a href="#" class="btn btn-primary">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-lg-3">
-                    <div class="blog-item  rounded p-3 text-center" style="background-color: #4d535e28;">
-                        <div class="d-flex justify-content-center">
-                            <img src="img/blog-1.jpg" class="img-fluid rounded" style="width:100%;height:80%">
-                        </div>
-                        <div class="blog-content text-start mt-3">
-                            <h5>IELTS Preparation Class Private Program</h5>
-                            <span class="card-text fw-bold ">Rp 3.195.000</span>
-                            <div class="rounded p-2 mt-1 d-flex align-items-center" style="background-color: white;">
-                                <div class="row g-2">
-                                    <div class="col-auto d-flex align-items-center">
-                                        <i class="fas fa-file-alt me-2"></i> <span>10 Lessons</span>
-                                    </div>
-                                    <div class="col-auto d-flex align-items-center">
-                                        <i class="fas fa-clock me-2"></i> <span>20 Pertemuan</span>
-                                    </div>
-                                </div>
-                                
-                            </div>
-                            <div class="d-flex justify-content-start mt-3">
-                                <a href="#" class="btn btn-primary">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-lg-3">
-                    <div class="blog-item bg-light rounded p-2 text-start">
-                        <div class="d-flex justify-content-center">
-                            <img src="img/blog-1.jpg" class="img-fluid rounded" style="width:100%;height:80%">
-                        </div>
-                        <div class="blog-content text-start mt-3">
-                            <h5>IELTS Preparation Class Private Program</h5>
-                            <div class="d-flex justify-content-start p-2">
-                                <a href="#" class="btn btn-primary">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @empty
+
+                @endforelse
+
                 <!-- Duplicate the above block for more blog items -->
             </div>
         </div>

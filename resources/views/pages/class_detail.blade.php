@@ -3,7 +3,7 @@
 @section('title', 'Detail Kelas')
 
 @section('content')
-    <!-- Page Header Start -->
+    {{-- <!-- Page Header Start -->
     <div class="container-fluid page-header py-5">
         <div class="container text-center py-5">
             <h1 class="display-2 text-white mb-4 animated slideInDown">Detail Kelas</h1>
@@ -16,16 +16,16 @@
             </nav>
         </div>
     </div>
-    <!-- Page Header End -->
+    <!-- Page Header End --> --}}
 
     <div class="container py-5">
         <div class="row">
             <div class="col-md-6">
-                <img src="img/about-1.jpg" class="img-fluid rounded shadow" alt="Class Image">
-            </div>
+                <img src="/{{$class->image}}" class="img-fluid rounded shadow class-image" alt="Class Image" style="height:450px; object-fit:cover; max-width:100%">
+                        </div>
             <div class="col-md-6">
-                <h2>IELTS Preparation Class Private Program</h2>
-                <p class="text-muted">Rp 3.195.000</p>
+                <h2>{{$class->title}}</h2>
+                <p class="text-muted">Rp {{ $class->price }}</p>
                 <p>Kelas ini dirancang untuk membantu Anda meningkatkan keterampilan bahasa Inggris untuk IELTS.</p>
                 <div class="">
                 <a href="#" class="btn btn-primary">Daftar Sekarang</a>
@@ -56,30 +56,22 @@
             <div class="tab-pane fade" id="curriculum" role="tabpanel">
                 <h3>Curriculum</h3>
                 <div class="accordion" id="curriculumAccordion">
+                    @forelse ($modules as $index => $module)
                     <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingOne">
-                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true">
-                                Modul IELTS Dasar
+                        <h2 class="accordion-header" id="heading{{ $index }}">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ $index }}" aria-expanded="false" aria-controls="collapse{{ $index }}">
+                               {{ $module->title }}
                             </button>
                         </h2>
-                        <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#curriculumAccordion">
+                        <div id="collapse{{ $index }}" class="accordion-collapse collapse" data-bs-parent="#curriculumAccordion">
                             <div class="accordion-body">
-                                Dalam modul ini, Anda akan belajar dasar-dasar IELTS termasuk listening, reading, writing, dan speaking.
+                                {{ $module->content }}
                             </div>
                         </div>
                     </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingTwo">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
-                                Modul IELTS Dasar 2
-                            </button>
-                        </h2>
-                        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#curriculumAccordion">
-                            <div class="accordion-body">
-                                Modul lanjutan yang memperdalam pemahaman tentang teknik IELTS dengan latihan dan simulasi ujian.
-                            </div>
-                        </div>
-                    </div>
+                    @empty
+                    <p>No modules available.</p>
+                    @endforelse
                 </div>
             </div>
         </div>

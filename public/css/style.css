@@ -662,3 +662,25 @@
 }
 
 /*** Footer End ***/
+
+
+.dropdown-menu {
+    min-width: 200px; /* Menyesuaikan ukuran dropdown */
+    background-color: #fff; /* Warna latar belakang */
+    border-radius: 8px; /* Membuat sudut lebih halus */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Efek shadow */
+    border: none; /* Menghapus border bawaan */
+}
+
+.dropdown-item {
+    font-size: 16px;
+    color: #333;
+    transition: all 0.3s ease-in-out;
+}
+
+.dropdown-item:hover {
+    background-color: var(--bs-primary);
+    color: #fff;
+    border-radius: 5px;
+    padding-left: 15px; /* Efek geser saat hover */
+}

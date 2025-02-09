@@ -3,7 +3,7 @@
         <div class="row g-5">
             <div class="col-lg-3 col-md-6">
                 <a href="{{ url('/') }}">
-                    <h1 class="text-white fw-bold d-block">High<span class="text-secondary">Tech</span></h1>
+                    <h1 class="text-primary fw-bold d-block">IKnow<span class="text-dark">Education</span></h1>
                 </a>
                 <p class="mt-4 text-light">Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta facere delectus qui placeat inventore consectetur repellendus optio debitis.</p>
                 <div class="d-flex hightech-link">
@@ -18,9 +18,8 @@
                 <div class="mt-4 d-flex flex-column short-link">
                     <a href="" class="mb-2 text-white"><i class="fas fa-angle-right text-secondary me-2"></i>About us</a>
                     <a href="" class="mb-2 text-white"><i class="fas fa-angle-right text-secondary me-2"></i>Contact us</a>
-                    <a href="" class="mb-2 text-white"><i class="fas fa-angle-right text-secondary me-2"></i>Our Services</a>
-                    <a href="" class="mb-2 text-white"><i class="fas fa-angle-right text-secondary me-2"></i>Our Projects</a>
-                    <a href="" class="mb-2 text-white"><i class="fas fa-angle-right text-secondary me-2"></i>Latest Blog</a>
+                    <a href="" class="mb-2 text-white"><i class="fas fa-angle-right text-secondary me-2"></i>Our Program</a>
+                    <a href="" class="mb-2 text-white"><i class="fas fa-angle-right text-secondary me-2"></i>Our Instructor</a>
                 </div>
             </div>
             <!-- Other footer sections go here -->
@@ -28,10 +27,7 @@
         <hr class="text-light mt-5 mb-4">
         <div class="row">
             <div class="col-md-6 text-center text-md-start">
-                <span class="text-light"><a href="#" class="text-secondary">© Your Site Name</a>, All rights reserved.</span>
-            </div>
-            <div class="col-md-6 text-center text-md-end">
-                <span class="text-light">Designed By <a href="https://htmlcodex.com" class="text-secondary">HTML Codex</a></span>
+                <span class="text-light"><a href="#" class="text-primary">© Iknow Education</a>, All rights reserved.</span>
             </div>
         </div>
     </div>

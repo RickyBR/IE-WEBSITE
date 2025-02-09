@@ -68,58 +68,25 @@
                 <h1>Program Unggulan Kami!</h1>
             </div>
             <div class="row g-4">
+                @forelse ($programs as $program)
+
                 <div class="col-md-4 col-lg-3">
                     <div class="blog-item bg-light rounded p-2 text-center">
                         <div class="d-flex justify-content-center">
-                            <img src="img/blog-1.jpg" class="img-fluid rounded" style="width:100%;height:80%">
+                            <img src="/{{$program->image}}" class="img-fluid rounded" style="width:100%;height:80%">
                         </div>
                         <div class="blog-content text-center mt-3">
-                            <h5>IELTS Preparation Class Private Program</h5>
+                            <h5>{{$program->title}}</h5>
                             <div class="d-flex justify-content-center p-2">
-                                <a href="#" class="btn btn-primary">Read More</a>
+                                <a href="{{ url('/program/' . $program->id).'/class' }}" class="btn btn-primary">Read More</a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 col-lg-3">
-                    <div class="blog-item bg-light rounded p-2 text-center">
-                        <div class="d-flex justify-content-center">
-                            <img src="img/blog-1.jpg" class="img-fluid rounded" style="width:100%;height:80%">
-                        </div>
-                        <div class="blog-content text-center mt-3">
-                            <h5>IELTS Preparation Class Private Program</h5>
-                            <div class="d-flex justify-content-center p-2">
-                                <a href="#" class="btn btn-primary">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-lg-3">
-                    <div class="blog-item bg-light rounded p-2 text-center">
-                        <div class="d-flex justify-content-center">
-                            <img src="img/blog-1.jpg" class="img-fluid rounded" style="width:100%;height:80%">
-                        </div>
-                        <div class="blog-content text-center mt-3">
-                            <h5>IELTS Preparation Class Private Program</h5>
-                            <div class="d-flex justify-content-center p-2">
-                                <a href="#" class="btn btn-primary">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-lg-3">
-                    <div class="blog-item bg-light rounded p-2 text-center">
-                        <div class="d-flex justify-content-center">
-                            <img src="img/blog-1.jpg" class="img-fluid rounded" style="width:100%;height:80%">
-                        </div>
-                        <div class="blog-content text-center mt-3">
-                            <h5>IELTS Preparation Class Private Program</h5>
-                            <div class="d-flex justify-content-center p-2">
-                                <a href="#" class="btn btn-primary">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @empty
+
+                @endforelse
+
                 <!-- Duplicate the above block for more blog items -->
             </div>
         </div>
@@ -127,41 +94,7 @@
     <!-- Blog End -->
 
     <div class="container py-5">
-        <!-- Testimonial Section -->
-        <div class="text-center mx-auto pb-5 wow fadeIn" data-wow-delay=".3s" style="max-width: 600px;">
-            <h2 class="text-center fw-bold">Apa kata para alumni IKnow Education?</h2>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-md-5">
-                <div class="p-4 bg-white shadow rounded position-relative">
-                    <div class="d-flex align-items-center">
-                        <img src="https://via.placeholder.com/50" class="rounded-circle me-3" alt="Client">
-                        <div>
-                            <h5 class="fw-bold">Finkidia</h5>
-                            <p class="text-muted mb-0">Client</p>
-                        </div>
-                    </div>
-                    <p class="mt-3">⭐⭐⭐⭐⭐</p>
-                    <p>“Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec rutrum dapibus luctus.”</p>
-                    <div class="position-absolute top-0 end-0" style="width: 50px; height: 50px; background: #F5F7FA;"></div>
-                </div>
-            </div>
-    
-            <div class="col-md-5">
-                <div class="p-4 bg-white shadow rounded position-relative">
-                    <div class="d-flex align-items-center">
-                        <img src="https://via.placeholder.com/50" class="rounded-circle me-3" alt="Client">
-                        <div>
-                            <h5 class="fw-bold">Friskidia</h5>
-                            <p class="text-muted mb-0">Client</p>
-                        </div>
-                    </div>
-                    <p class="mt-3">⭐⭐⭐⭐⭐</p>
-                    <p>“Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec rutrum dapibus luctus.”</p>
-                    <div class="position-absolute top-0 end-0" style="width: 50px; height: 50px; background: #F5F7FA;"></div>
-                </div>
-            </div>
-        </div>
+       
 
     <!-- About Start -->
     <div class="container-fluid py-5 my-5">
@@ -205,7 +138,7 @@
     <!-- Program welcome End -->
    
 
-    <!-- Testimonial Start -->
+    {{-- <!-- Testimonial Start -->
     <div class="container-fluid testimonial py-5 mb-5">
         <div class="container">
             <div class="text-center mx-auto pb-5 wow fadeIn" data-wow-delay=".3s" style="max-width: 600px;">
@@ -301,5 +234,85 @@
         </div>
     </div>
 
-    <!-- Testimonial End -->
+    <!-- Testimonial End --> --}}
+
+
+     <!-- Testimonial Section -->
+     <div class="text-center mx-auto pb-5 wow fadeIn" data-wow-delay=".3s" style="max-width: 600px;">
+        <h2 class="text-center fw-bold">Apa kata para alumni IKnow Education?</h2>
+    </div>
+    <div class="container-fluid testimonial py-5">
+        <div class="container">
+            <div class="owl-carousel testimonial-carousel wow fadeIn" data-wow-delay=".5s">
+                <!-- Testimonial Item 1 -->
+                <div class="testimonial-item border p-4">
+                    <div class="d-flex align-items-center">
+                        <div class="testimonial-avatar">
+                            <img src="img/testimonial-1.jpg" alt="Alumni 1" class="img-fluid rounded-circle" style="width: 80px; height: 80px;">
+                        </div>
+                        <div class="ms-4">
+                            <h4 class="text-primary">Alumni Name 1</h4>
+                            <p class="m-0 pb-3">Web Developer</p>
+                            <div class="d-flex pe-5">
+                                <i class="fas fa-star me-1 text-primary"></i>
+                                <i class="fas fa-star me-1 text-primary"></i>
+                                <i class="fas fa-star me-1 text-primary"></i>
+                                <i class="fas fa-star me-1 text-primary"></i>
+                                <i class="fas fa-star me-1 text-primary"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="border-top mt-4 pt-3">
+                        <p class="mb-0">"IKnow Education helped me gain the skills needed to land my first job as a web developer. The curriculum was practical and easy to follow."</p>
+                    </div>
+                </div>
+    
+                <!-- Testimonial Item 2 -->
+                <div class="testimonial-item border p-4">
+                    <div class="d-flex align-items-center">
+                        <div class="testimonial-avatar">
+                            <img src="img/testimonial-2.jpg" alt="Alumni 2" class="img-fluid rounded-circle" style="width: 80px; height: 80px;">
+                        </div>
+                        <div class="ms-4">
+                            <h4 class="text-primary">Alumni Name 2</h4>
+                            <p class="m-0 pb-3">Graphic Designer</p>
+                            <div class="d-flex pe-5">
+                                <i class="fas fa-star me-1 text-primary"></i>
+                                <i class="fas fa-star me-1 text-primary"></i>
+                                <i class="fas fa-star me-1 text-primary"></i>
+                                <i class="fas fa-star me-1 text-primary"></i>
+                                <i class="fas fa-star me-1 text-primary"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="border-top mt-4 pt-3">
+                        <p class="mb-0">"Thanks to IKnow Education, I became a professional graphic designer. The teachers were amazing, and the projects were very hands-on."</p>
+                    </div>
+                </div>
+    
+                <!-- Testimonial Item 3 -->
+                <div class="testimonial-item border p-4">
+                    <div class="d-flex align-items-center">
+                        <div class="testimonial-avatar">
+                            <img src="img/testimonial-3.jpg" alt="Alumni 3" class="img-fluid rounded-circle" style="width: 80px; height: 80px;">
+                        </div>
+                        <div class="ms-4">
+                            <h4 class="text-primary">Alumni Name 3</h4>
+                            <p class="m-0 pb-3">Digital Marketer</p>
+                            <div class="d-flex pe-5">
+                                <i class="fas fa-star me-1 text-primary"></i>
+                                <i class="fas fa-star me-1 text-primary"></i>
+                                <i class="fas fa-star me-1 text-primary"></i>
+                                <i class="fas fa-star me-1 text-primary"></i>
+                                <i class="fas fa-star me-1 text-primary"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="border-top mt-4 pt-3">
+                        <p class="mb-0">"The best decision I made was to join IKnow Education. The digital marketing course transformed my career and gave me the skills to thrive in a competitive field."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection

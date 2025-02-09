@@ -14,6 +14,14 @@ class TestimonialController extends Controller
         return view('admin.testimonial.home', compact(['testimonials', 'total']));
     }
 
+    public function user()
+    {
+        $testimonials = Testimonial::all();
+    
+
+    return view('pages.testimonial', compact('testimonials'));
+    }
+
     public function create() 
     {
         return view('admin.testimonial.create');

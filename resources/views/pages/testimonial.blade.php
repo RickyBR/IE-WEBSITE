@@ -4,7 +4,7 @@
 
 @section('content')
     <!-- Page Header Start -->
-    <div class="container-fluid page-header py-5 text-center text-white bg-dark">
+    {{-- <div class="container-fluid page-header py-5 text-center text-white bg-dark">
         <div class="container py-5">
             <h1 class="display-4 fw-bold">Testimonial</h1>
             <nav aria-label="breadcrumb">
@@ -15,7 +15,7 @@
                 </ol>
             </nav>
         </div>
-    </div>
+    </div> --}}
     <!-- Page Header End -->
 {{-- 
     <!-- Stats Section Start -->
@@ -44,11 +44,11 @@
     <!-- Testimonial Start -->
     <div class="container py-5">
         <div class="text-center mb-5">
-            <h5 class="text-primary">What Our Clients Say</h5>
+            <h5 class="text-primary">What Our Student Say</h5>
             <h2 class="fw-bold">Real Stories from Real Customers</h2>
         </div>
         <div class="row">
-            {{-- @foreach($testimonials as $testimonial) --}}
+            @foreach($testimonials as $testimonial)
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="card border-0 shadow p-4">
                         <div class="d-flex align-items-center">
@@ -59,7 +59,7 @@
                             </div>
                         </div>
                         <div class="mt-3">
-                            <p class="text-muted">"{{ $testimonial->message }}"</p>
+                            <p class="text-muted">"{{ $testimonial->description }}"</p>
                             <div class="text-warning">
                                 @for ($i = 0; $i < $testimonial->rating; $i++)
                                     <i class="fas fa-star"></i>
@@ -69,106 +69,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card border-0 shadow p-4">
-                        <div class="d-flex align-items-center">
-                            <img src="{{ $testimonial->image }}" class="rounded-circle me-3" width="60" height="60" alt="Client Image">
-                            <div>
-                                <h5 class="mb-0">{{ $testimonial->name }}</h5>
-                                <small class="text-muted">{{ $testimonial->profession }}</small>
-                            </div>
-                        </div>
-                        <div class="mt-3">
-                            <p class="text-muted">"{{ $testimonial->message }}"</p>
-                            <div class="text-warning">
-                                @for ($i = 0; $i < $testimonial->rating; $i++)
-                                    <i class="fas fa-star"></i>
-                                @endfor
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card border-0 shadow p-4">
-                        <div class="d-flex align-items-center">
-                            <img src="{{ $testimonial->image }}" class="rounded-circle me-3" width="60" height="60" alt="Client Image">
-                            <div>
-                                <h5 class="mb-0">{{ $testimonial->name }}</h5>
-                                <small class="text-muted">{{ $testimonial->profession }}</small>
-                            </div>
-                        </div>
-                        <div class="mt-3">
-                            <p class="text-muted">"{{ $testimonial->message }}"</p>
-                            <div class="text-warning">
-                                @for ($i = 0; $i < $testimonial->rating; $i++)
-                                    <i class="fas fa-star"></i>
-                                @endfor
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card border-0 shadow p-4">
-                        <div class="d-flex align-items-center">
-                            <img src="{{ $testimonial->image }}" class="rounded-circle me-3" width="60" height="60" alt="Client Image">
-                            <div>
-                                <h5 class="mb-0">{{ $testimonial->name }}</h5>
-                                <small class="text-muted">{{ $testimonial->profession }}</small>
-                            </div>
-                        </div>
-                        <div class="mt-3">
-                            <p class="text-muted">"{{ $testimonial->message }}"</p>
-                            <div class="text-warning">
-                                @for ($i = 0; $i < $testimonial->rating; $i++)
-                                    <i class="fas fa-star"></i>
-                                @endfor
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card border-0 shadow p-4">
-                        <div class="d-flex align-items-center">
-                            <img src="{{ $testimonial->image }}" class="rounded-circle me-3" width="60" height="60" alt="Client Image">
-                            <div>
-                                <h5 class="mb-0">{{ $testimonial->name }}</h5>
-                                <small class="text-muted">{{ $testimonial->profession }}</small>
-                            </div>
-                        </div>
-                        <div class="mt-3">
-                            <p class="text-muted">"{{ $testimonial->message }}"</p>
-                            <div class="text-warning">
-                                @for ($i = 0; $i < $testimonial->rating; $i++)
-                                    <i class="fas fa-star"></i>
-                                @endfor
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card border-0 shadow p-4">
-                        <div class="d-flex align-items-center">
-                            <img src="{{ $testimonial->image }}" class="rounded-circle me-3" width="60" height="60" alt="Client Image">
-                            <div>
-                                <h5 class="mb-0">{{ $testimonial->name }}</h5>
-                                <small class="text-muted">{{ $testimonial->profession }}</small>
-                            </div>
-                        </div>
-                        <div class="mt-3">
-                            <p class="text-muted">"{{ $testimonial->message }}"</p>
-                            <div class="text-warning">
-                                @for ($i = 0; $i < $testimonial->rating; $i++)
-                                    <i class="fas fa-star"></i>
-                                @endfor
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            {{-- @endforeach --}}
+            @endforeach
         </div>
     </div>
     <!-- Testimonial End -->

@@ -17,6 +17,14 @@ class ProductController extends Controller
         return view('admin.class.home', compact(['classes', 'total']));
 
     }
+    public function user($id)
+    {
+        $program = Program::findOrFail($id);
+    
+    $products = $program->products;
+
+    return view('pages.class', compact('products'));
+    }
 
     public function create() 
     {

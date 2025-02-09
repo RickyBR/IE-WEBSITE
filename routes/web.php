@@ -11,9 +11,7 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('/', function () {
-    return view('pages.home');
-});
+Route::get('/', [ProgramController::class, 'home']);
 
 Route::get('/about', function () {
     return view('pages.about');
@@ -23,33 +21,26 @@ Route::get('/contact', function () {
     return view('pages.contact');
 });
 
-Route::get('/blog', function () {
-    return view('pages.blog');
-});
+Route::get('/testimonial',[TestimonialController::class, 'user']);
 
 Route::get('/instructor', function () {
     return view('pages.service');
 });
 
-Route::get('/class', function () {
-    return view('pages.class');
-});
+Route::get('/program/{id}/class',[ProductController::class, 'user']);
 
-Route::get('/class-detail', function () {
-    return view('pages.class_detail');
-});
+
+Route::get('/class/{id}/detail',[ClassModuleController::class, 'user']);
 
 Route::get('/team', function () {
     return view('pages.team');
 });
 
-Route::get('/testimonials', function () {
-    return view('pages.testimonial');
-});
-
 Route::get('/404', function () {
     return view('pages.404');
 });
+
+Route::get('/', [ProgramController::class, 'home'])->name('home');
 
 
 Route::get('/dashboard', function () {

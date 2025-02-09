@@ -4,19 +4,37 @@ namespace App\Http\Controllers;
 
 use App\Models\Program;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\View as FacadeView;
 
 class ProgramController extends Controller
 {
+
     public function index() 
     {
-        $programs = Program::get();
+        $programs = Program::all();
         $total = Program::count();
-        return view('admin.program.home', compact(['programs', 'total']));
+        return view('admin.program.home', compact('programs', 'total'));
     }
+    
+    public function home()
+    {
+        $programs = Program::all();
+        return view('pages.home', compact('programs'));
+    }
+    
 
     public function create() 
     {
         return view('admin.program.create');
+    }
+
+
+    public function show($id) 
+    {
+        $program = Program::findOrFail($id);
+
+        $classes = $program->classes; 
+        return view('pages.class', compact('program', 'classes'));
     }
 
     public function save(Request $request) {

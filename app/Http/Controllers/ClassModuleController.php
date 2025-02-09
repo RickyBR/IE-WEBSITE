@@ -16,6 +16,15 @@ class ClassModuleController extends Controller
 
     }
 
+    public function user($id) 
+    {
+        $class = Product::findOrFail($id);
+
+        $modules = $class->modules;
+
+        return view('pages.class_detail', compact(['modules', 'class']));
+    }
+
     public function create() 
     {
         $products = Product::all(); 
