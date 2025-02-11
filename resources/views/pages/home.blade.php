@@ -73,7 +73,7 @@
                 <div class="col-md-4 col-lg-3">
                     <div class="blog-item bg-light rounded p-2 text-center">
                         <div class="d-flex justify-content-center">
-                            <img src="/{{$program->image}}" class="img-fluid rounded" style="width:100%;height:80%">
+                            <img src="/{{ $program->image }}" class="img-fluid rounded" style="width:100%;height:80%">
                         </div>
                         <div class="blog-content text-center mt-3">
                             <h5>{{$program->title}}</h5>
@@ -92,13 +92,11 @@
         </div>
     </div>
     <!-- Blog End -->
-
-    <div class="container py-5">
        
 
     <!-- About Start -->
-    <div class="container-fluid py-5 my-5">
-        <div class="container pt-5">
+    <div class="container-fluid py-5 my-5 px-0 mx-0" style="background-color: #f1f1f1;">    
+            <div class="container pt-5">
             <div class="row g-5">
                 <div class="col-lg-5 col-md-6 col-sm-12 wow fadeIn" data-wow-delay=".3s">
                     <div class="h-100 position-relative">
@@ -109,7 +107,7 @@
                     <h5 class="text-primary">About Us</h5>
                     <h1 class="mb-4">Iknow Education</h1>
                     <p>Mulai perjalanan cita-citamu bareng iKnow Education. Kita siap jadi jembatan menuju suksesmu</p>
-                    <a href="" class="btn btn-primary rounded px-5 py-3 text-white">More Details</a>
+                    <a href="{{ url('/about')}}" class="btn btn-primary rounded px-5 py-3 text-white">Read More</a>
                 </div>
             </div>
         </div>
@@ -130,7 +128,7 @@
                     <h5 class="text-primary">Program</h5>
                     <h1 class="mb-4">Iknow Education</h1>
                     <p>Mulai perjalanan cita-citamu bareng iKnow Education. Kita siap jadi jembatan menuju suksesmu</p>
-                    <a href="" class="btn btn-primary rounded px-5 py-3 text-white">More Details</a>
+                    <a href="{{  url('/program/9e25f0c5-f769-4c80-96eb-9d2b9791c1a3/class') }}" class="btn btn-primary rounded px-5 py-3 text-white">More Details</a>
                 </div>
             </div>
         </div>
@@ -238,11 +236,12 @@
 
 
      <!-- Testimonial Section -->
-     <div class="text-center mx-auto pb-5 wow fadeIn" data-wow-delay=".3s" style="max-width: 600px;">
-        <h2 class="text-center fw-bold">Apa kata para alumni IKnow Education?</h2>
-    </div>
-    <div class="container-fluid testimonial py-5">
+    
+    <div class="container-fluid testimonial py-5" style="background-color: #f1f1f1;">
         <div class="container">
+            <div class="text-center mx-auto pb-5 wow fadeIn" data-wow-delay=".3s" style="max-width: 600px;">
+                <h2 class="text-center fw-bold">Apa kata para alumni IKnow Education?</h2>
+            </div>
             <div class="owl-carousel testimonial-carousel wow fadeIn" data-wow-delay=".5s">
                 <!-- Testimonial Item 1 -->
                 <div class="testimonial-item border p-4">
@@ -314,5 +313,4 @@
                 </div>
             </div>
         </div>
-    </div>
 @endsection

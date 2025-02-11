@@ -12,7 +12,9 @@ class Instructor extends Model
     protected $table = 'instructors';
     protected $fillable = [
         'name', 
-        'detail', 
+        'institution', 
+        'experience', 
+        'social_media', 
         'image'
     ];
 }

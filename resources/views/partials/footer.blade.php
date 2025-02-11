@@ -14,7 +14,7 @@
                 </div>
             </div>
             <div class="col-lg-3 col-md-6">
-                <a href="#" class="h3 text-secondary">Short Link</a>
+                <a href="#" class="h3 text-primary">Short Link</a>
                 <div class="mt-4 d-flex flex-column short-link">
                     <a href="" class="mb-2 text-white"><i class="fas fa-angle-right text-secondary me-2"></i>About us</a>
                     <a href="" class="mb-2 text-white"><i class="fas fa-angle-right text-secondary me-2"></i>Contact us</a>

@@ -22,7 +22,9 @@
                     <tr>
                         <th>#</th>
                         <th>Name</th>
-                        <th>Detail</th>
+                        <th>Institution</th>
+                        <th>Experience</th>
+                        <th>Social Media</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -31,7 +33,9 @@
                     <tr>
                         <td class="align-middle"> {{$loop->iteration}}</td>
                         <td class="align-middle"> {{$instructor->name}}</td>
-                        <td class="align-middle"> {{$instructor->detail}}</td>
+                        <td class="align-middle"> {{$instructor->institution}}</td>
+                        <td class="align-middle"> {{$instructor->experience}}</td>
+                        <td class="align-middle"> {{$instructor->social_media}}</td>
                         <td class="align-middle">
                             <div class="btn-group" role="group" aria-label="Basic Example">
                                 <a href="{{ route('admin/instructors/edit', ['id'=>$instructor->id]) }}" type="button" class="btn btn-secondary">Edit</a>

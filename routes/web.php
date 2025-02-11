@@ -23,9 +23,7 @@ Route::get('/contact', function () {
 
 Route::get('/testimonial',[TestimonialController::class, 'user']);
 
-Route::get('/instructor', function () {
-    return view('pages.service');
-});
+Route::get('/instructor',[InstructorController::class, 'user']);
 
 Route::get('/program/{id}/class',[ProductController::class, 'user']);
 

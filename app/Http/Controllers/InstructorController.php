@@ -14,6 +14,12 @@ class InstructorController extends Controller
         return view('admin.instructor.home', compact(['instructors', 'total']));
     }
 
+    public function user() 
+    {
+        $instructors = Instructor::all();
+        return view('pages.service', compact('instructors'));
+    }
+
     public function create() 
     {
         return view('admin.instructor.create');
@@ -22,7 +28,9 @@ class InstructorController extends Controller
     public function save(Request $request) {
         $validation = $request->validate([
             'name' =>'required',
-            'detail' => 'required',
+            'institution' => 'required',
+            'experience' => 'required',
+            'socialMedia' => 'nullable',
             'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048'
         ]);
 
@@ -53,12 +61,17 @@ class InstructorController extends Controller
 
         $validation = $request->validate([
             'name' => 'required', 
-            'detail' => 'required',
+            'institution' => 'required',
+            'experience' => 'required',
+            'socialMedia' => 'nullable',
             'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048'
         ]);
 
         $instructors->name =$validation['name'];
-        $instructors->detail = $validation['detail'];
+        $instructors->experience = $validation['experience'];
+        $instructors->institution = $validation['institution'];
+        $instructors->social_media = $validation['socialMedia'];
+
         
         if ($request->hasFile('image')) {
             if ($instructors->image && file_exists(public_path($instructors->image))) {

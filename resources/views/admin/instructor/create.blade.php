@@ -32,8 +32,24 @@
                 </div>
                 <div clas="row">
                     <div class="col mb-3">
-                        <input type="text" name="detail" class="form-control" placeholder="Detail">
-                        @error('detail')
+                        <input type="text" name="institution" class="form-control" placeholder="Institution">
+                        @error('institution')
+                        <span class="text-danger">{{$message}}</span>
+                        @enderror
+                    </div>
+                </div>
+                <div clas="row">
+                    <div class="col mb-3">
+                        <input type="text" name="experience" class="form-control" placeholder="Experience">
+                        @error('experience')
+                        <span class="text-danger">{{$message}}</span>
+                        @enderror
+                    </div>
+                </div>
+                <div clas="row">
+                    <div class="col mb-3">
+                        <input type="text" name="socialMedia" class="form-control" placeholder="SocialMedia">
+                        @error('socialMedia')
                         <span class="text-danger">{{$message}}</span>
                         @enderror
                     </div>
