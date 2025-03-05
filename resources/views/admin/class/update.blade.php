@@ -48,12 +48,16 @@
 
                     </div>
                 </div>
-                <div clas="row ">
+                <div class="row">
                     <div class="col mb-3">
-                        <textarea id="description" name="description">{!! old('description', $class->description ?? '') !!}</textarea> 
-                        @error('category')
-                        <span class="text-danger">{{$message}}</span>
-                        @enderror
+                        <label>Class Features</label>
+                        <div id="features-container">
+                            <div class="input-group mb-2">
+                                <input type="text" name="description[]" class="form-control" placeholder="Enter feature" >
+                                <button type="button" class="btn btn-danger remove-feature">X</button>
+                            </div>
+                        </div>
+                        <button type="button" id="add-feature" class="btn btn-success">+ Add Feature</button>
                     </div>
                 </div>
                 <div clas="row ">
@@ -69,13 +73,12 @@
                         <img src="{{ asset($class->image) }}" alt="{{ $class->title }}" width="150">
 
                         <input type="file" name="image" class="form-control">
-                        @error('price')
+                        @error('image')
                         <span class="text-danger">{{$message}}</span>
                         @enderror
                     </div>
                 </div>
         
-
                 <div class="row">
                     <div class="d-grid">
                         <button class="btn btn-warning">Submit</button>
@@ -86,4 +89,28 @@
         </div>
     </div>
 </div>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const featuresContainer = document.getElementById("features-container");
+        const addFeatureButton = document.getElementById("add-feature");
+
+        addFeatureButton.addEventListener("click", function () {
+            const featureInput = document.createElement("div");
+            featureInput.classList.add("input-group", "mb-2");
+            featureInput.innerHTML = `
+                <input type="text" name="description[]" class="form-control" placeholder="Enter feature">
+                <button type="button" class="btn btn-danger remove-feature">X</button>
+            `;
+            featuresContainer.appendChild(featureInput);
+        });
+
+        featuresContainer.addEventListener("click", function (e) {
+            if (e.target.classList.contains("remove-feature")) {
+                e.target.parentElement.remove();
+            }
+        });
+    });
+</script>
 </x-app-layout>

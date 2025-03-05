@@ -36,11 +36,12 @@ class ProductController extends Controller
         $validation = $request->validate([
             'program_id' => 'required|exists:programs,id', // Validasi program_id harus ada di tabel programs
             'title' =>'required',
-            'category' =>'required',
-            'description' =>'required',
+            'description' =>'required|array',
+            'description.*' => 'string|max:255',
             'price' =>'required|numeric',
             'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048'
         ]);
+        $validation['description'] = json_encode($request->description);
     
         if ($request->hasFile('image')) {
             $image = $request->file('image');
@@ -69,33 +70,36 @@ class ProductController extends Controller
     }
 
     public function update(Request $request, $id) {
+
         $class = Product::findOrFail($id);
-    
+        
         // Validasi input
         $validation = $request->validate([
             'title' => 'required',
-            'category' => 'required',
             'price' => 'required|integer',
-            'program_id' => 'required|exists:programs,id', // Pastikan program_id valid
+            'program_id' => 'required|exists:programs,id',
+            'description' => 'array',
+            'description.*' => 'string|max:255',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
+
     
         // Update data produk
         $class->title = $validation['title'];
-        $class->category = $validation['category'];
         $class->price = $validation['price'];
-        $class->program_id = $validation['program_id']; // Update program_id
-    
+        $class->program_id = $validation['program_id'];
+        $class->description = json_encode($request->description);    
         // Cek apakah ada file gambar yang diunggah
         if ($request->hasFile('image')) {
+            // Hapus gambar lama jika ada
             if ($class->image && file_exists(public_path($class->image))) {
                 unlink(public_path($class->image));
             }
     
             $image = $request->file('image');
             $imageName = time().'.'.$image->getClientOriginalExtension();
-            $image->move(public_path('uploads/classes'), $imageName);
-            $class->image = 'uploads/classes/'.$imageName;
+            $image->move(public_path('uploads/programs'), $imageName);
+            $class->image = 'uploads/programs/'.$imageName;
         }
     
         // Simpan perubahan

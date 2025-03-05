@@ -13,12 +13,14 @@ class Product extends Model
     protected $fillable = [
         'program_id',
         'title', 
-        'category',
         'price',
         'description',
         'image'
     ];
 
+    protected $casts = [
+        'description' => 'array'
+    ];
     public function program()
     {
         return $this->belongsTo(Program::class, 'program_id');

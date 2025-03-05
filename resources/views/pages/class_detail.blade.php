@@ -25,7 +25,7 @@
                         </div>
             <div class="col-md-6">
                 <h2>{{$class->title}}</h2>
-                <p class="text-muted">Rp {{ $class->price }}</p>
+                <p class="text-muted">Rp {{ number_format($class->price, 0, ',', '.') }}</p>
                 <p>Kelas ini dirancang untuk membantu Anda meningkatkan keterampilan bahasa Inggris untuk IELTS.</p>
                 <div class="">
                 <a href="#" class="btn btn-primary">Daftar Sekarang</a>
@@ -47,11 +47,16 @@
         <div class="tab-content py-4">
             <div class="tab-pane fade show active" id="overview" role="tabpanel">
                 <h3>Apa yang akan Anda pelajari?</h3>
-                <p>Dalam kelas ini, Anda akan mempelajari teknik dan strategi terbaik untuk mendapatkan skor tinggi dalam IELTS.</p>
-                <h4>Detail Jadwal</h4>
-                <p>Senin & Rabu, 18:00 - 20:00 WIB</p>
-                <h4>Mentor</h4>
-                <p>John Doe - IELTS Expert</p>
+        
+                @if(!empty($class->description))
+                    <ul>
+                        @foreach ($class->description as $desc)
+                            <li>{{ $desc }}</li>
+                        @endforeach
+                    </ul>
+                @else
+                    <p>Tidak ada deskripsi yang tersedia.</p>
+                @endif
             </div>
             <div class="tab-pane fade" id="curriculum" role="tabpanel">
                 <h3>Curriculum</h3>

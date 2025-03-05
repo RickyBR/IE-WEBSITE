@@ -134,183 +134,49 @@
         </div>
     </div>
     <!-- Program welcome End -->
-   
 
-    {{-- <!-- Testimonial Start -->
+    <!-- Testimonial Start -->
     <div class="container-fluid testimonial py-5 mb-5">
         <div class="container">
             <div class="text-center mx-auto pb-5 wow fadeIn" data-wow-delay=".3s" style="max-width: 600px;">
                 <h5 class="text-primary">Our Testimonial</h5>
                 <h1>Our Client Saying!</h1>
             </div>
-            <div class="owl-carousel testimonial-carousel wow fadeIn" data-wow-delay=".5s">
-                <div class="testimonial-item border p-4">
-                    <div class="d-flex align-items-center">
-                        <div class="">
-                            <img src="img/testimonial-1.jpg" alt="">
-                        </div>
-                        <div class="ms-4">
-                            <h4 class="text-primary">Client Name</h4>
-                            <p class="m-0 pb-3">Profession</p>
-                            <div class="d-flex pe-5">
-                                <i class="fas fa-star me-1 text-primary"></i>
-                                <i class="fas fa-star me-1 text-primary"></i>
-                                <i class="fas fa-star me-1 text-primary"></i>
-                                <i class="fas fa-star me-1 text-primary"></i>
-                                <i class="fas fa-star me-1 text-primary"></i>
+            <div class="row">
+                @foreach($testimonials as $index => $testimonial)
+                    @if ($index > 1 ) 
+                        @break
+                    @endif
+            
+                    <div class="col-lg-6 col-md-6 mb-4">
+                        <div class="card border-0 shadow p-4">
+                            <div class="d-flex align-items-center">
+                                <img src="{{ $testimonial->image }}" class="rounded-circle me-3" width="60" height="60" alt="Client Image">
+                                <div>
+                                    <h5 class="mb-0">{{ $testimonial->name }}</h5>
+                                    <small class="text-muted">{{ $testimonial->profession }}</small>
+                                </div>
+                            </div>
+                            <div class="mt-3">
+                                <p class="text-muted">"{{ Str::limit($testimonial->description, 100) }}"</p>
+                                <div class="text-warning">
+                                    @for ($i = 0; $i < $testimonial->rating; $i++)
+                                        <i class="fas fa-star"></i>
+                                    @endfor
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="border-top mt-4 pt-3">
-                        <p class="mb-0">Lorem ipsum dolor sit amet elit. Sed efficitur quis purus ut interdum aliquam dolor eget urna. Nam volutpat libero sit amet leo cursus, ac viverra eros morbi quis quam mi.</p>
-                    </div>
-                </div>
-                <div class="testimonial-item border p-4">
-                    <div class=" d-flex align-items-center">
-                        <div class="">
-                            <img src="img/testimonial-2.jpg" alt="">
-                        </div>
-                        <div class="ms-4">
-                            <h4 class="text-primary">Client Name</h4>
-                            <p class="m-0 pb-3">Profession</p>
-                            <div class="d-flex pe-5">
-                                <i class="fas fa-star me-1 text-primary"></i>
-                                <i class="fas fa-star me-1 text-primary"></i>
-                                <i class="fas fa-star me-1 text-primary"></i>
-                                <i class="fas fa-star me-1 text-primary"></i>
-                                <i class="fas fa-star me-1 text-primary"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="border-top mt-4 pt-3">
-                        <p class="mb-0">Lorem ipsum dolor sit amet elit. Sed efficitur quis purus ut interdum aliquam dolor eget urna. Nam volutpat libero sit amet leo cursus, ac viverra eros morbi quis quam mi.</p>
-                    </div>
-                </div>
-                <div class="testimonial-item border p-4">
-                    <div class=" d-flex align-items-center">
-                        <div class="">
-                            <img src="img/testimonial-3.jpg" alt="">
-                        </div>
-                        <div class="ms-4">
-                            <h4 class="text-primary">Client Name</h4>
-                            <p class="m-0 pb-3">Profession</p>
-                            <div class="d-flex pe-5">
-                                <i class="fas fa-star me-1 text-primary"></i>
-                                <i class="fas fa-star me-1 text-primary"></i>
-                                <i class="fas fa-star me-1 text-primary"></i>
-                                <i class="fas fa-star me-1 text-primary"></i>
-                                <i class="fas fa-star me-1 text-primary"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="border-top mt-4 pt-3">
-                        <p class="mb-0">Lorem ipsum dolor sit amet elit. Sed efficitur quis purus ut interdum aliquam dolor eget urna. Nam volutpat libero sit amet leo cursus, ac viverra eros morbi quis quam mi.</p>
-                    </div>
-                </div>
-                <div class="testimonial-item border p-4">
-                    <div class=" d-flex align-items-center">
-                        <div class="">
-                            <img src="img/testimonial-4.jpg" alt="">
-                        </div>
-                        <div class="ms-4">
-                            <h4 class="text-primary">Client Name</h4>
-                            <p class="m-0 pb-3">Profession</p>
-                            <div class="d-flex pe-5">
-                                <i class="fas fa-star me-1 text-primary"></i>
-                                <i class="fas fa-star me-1 text-primary"></i>
-                                <i class="fas fa-star me-1 text-primary"></i>
-                                <i class="fas fa-star me-1 text-primary"></i>
-                                <i class="fas fa-star me-1 text-primary"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="border-top mt-4 pt-3">
-                        <p class="mb-0">Lorem ipsum dolor sit amet elit. Sed efficitur quis purus ut interdum aliquam dolor eget urna. Nam volutpat libero sit amet leo cursus, ac viverra eros morbi quis quam mi.</p>
-                    </div>
-                </div>
+                @endforeach
             </div>
+            
+            <!-- Tombol Read More -->
+            <div class="text-center mt-4">
+                <a href="{{ url('/testimonial') }}" class="btn btn-primary">Read More</a>
+            </div>
+            
         </div>
     </div>
 
-    <!-- Testimonial End --> --}}
-
-
-     <!-- Testimonial Section -->
-    
-    <div class="container-fluid testimonial py-5" style="background-color: #f1f1f1;">
-        <div class="container">
-            <div class="text-center mx-auto pb-5 wow fadeIn" data-wow-delay=".3s" style="max-width: 600px;">
-                <h2 class="text-center fw-bold">Apa kata para alumni IKnow Education?</h2>
-            </div>
-            <div class="owl-carousel testimonial-carousel wow fadeIn" data-wow-delay=".5s">
-                <!-- Testimonial Item 1 -->
-                <div class="testimonial-item border p-4">
-                    <div class="d-flex align-items-center">
-                        <div class="testimonial-avatar">
-                            <img src="img/testimonial-1.jpg" alt="Alumni 1" class="img-fluid rounded-circle" style="width: 80px; height: 80px;">
-                        </div>
-                        <div class="ms-4">
-                            <h4 class="text-primary">Alumni Name 1</h4>
-                            <p class="m-0 pb-3">Web Developer</p>
-                            <div class="d-flex pe-5">
-                                <i class="fas fa-star me-1 text-primary"></i>
-                                <i class="fas fa-star me-1 text-primary"></i>
-                                <i class="fas fa-star me-1 text-primary"></i>
-                                <i class="fas fa-star me-1 text-primary"></i>
-                                <i class="fas fa-star me-1 text-primary"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="border-top mt-4 pt-3">
-                        <p class="mb-0">"IKnow Education helped me gain the skills needed to land my first job as a web developer. The curriculum was practical and easy to follow."</p>
-                    </div>
-                </div>
-    
-                <!-- Testimonial Item 2 -->
-                <div class="testimonial-item border p-4">
-                    <div class="d-flex align-items-center">
-                        <div class="testimonial-avatar">
-                            <img src="img/testimonial-2.jpg" alt="Alumni 2" class="img-fluid rounded-circle" style="width: 80px; height: 80px;">
-                        </div>
-                        <div class="ms-4">
-                            <h4 class="text-primary">Alumni Name 2</h4>
-                            <p class="m-0 pb-3">Graphic Designer</p>
-                            <div class="d-flex pe-5">
-                                <i class="fas fa-star me-1 text-primary"></i>
-                                <i class="fas fa-star me-1 text-primary"></i>
-                                <i class="fas fa-star me-1 text-primary"></i>
-                                <i class="fas fa-star me-1 text-primary"></i>
-                                <i class="fas fa-star me-1 text-primary"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="border-top mt-4 pt-3">
-                        <p class="mb-0">"Thanks to IKnow Education, I became a professional graphic designer. The teachers were amazing, and the projects were very hands-on."</p>
-                    </div>
-                </div>
-    
-                <!-- Testimonial Item 3 -->
-                <div class="testimonial-item border p-4">
-                    <div class="d-flex align-items-center">
-                        <div class="testimonial-avatar">
-                            <img src="img/testimonial-3.jpg" alt="Alumni 3" class="img-fluid rounded-circle" style="width: 80px; height: 80px;">
-                        </div>
-                        <div class="ms-4">
-                            <h4 class="text-primary">Alumni Name 3</h4>
-                            <p class="m-0 pb-3">Digital Marketer</p>
-                            <div class="d-flex pe-5">
-                                <i class="fas fa-star me-1 text-primary"></i>
-                                <i class="fas fa-star me-1 text-primary"></i>
-                                <i class="fas fa-star me-1 text-primary"></i>
-                                <i class="fas fa-star me-1 text-primary"></i>
-                                <i class="fas fa-star me-1 text-primary"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="border-top mt-4 pt-3">
-                        <p class="mb-0">"The best decision I made was to join IKnow Education. The digital marketing course transformed my career and gave me the skills to thrive in a competitive field."</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <!-- Testimonial End -->
 @endsection

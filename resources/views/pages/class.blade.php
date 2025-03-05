@@ -4,11 +4,13 @@
 
 @section('content')
     <style>
-        .card {
+       .card {
             transition: all 0.3s ease-in-out;
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background: white;
+            padding: 20px;
         }
 
         .card:hover {
@@ -20,6 +22,7 @@
             width: 100%;
             height: 200px;
             object-fit: cover;
+            border-radius: 10px;
         }
 
         .btn-contact {
@@ -40,20 +43,18 @@
     <div class="container-fluid py-5">
         <div class="container">
             <div class="text-center mb-5">
-                <h5 class="text-primary">Our Program</h5>
-                <h1>Program Unggulan Kami!</h1>
+                <h5 class="text-primary">Our Class</h5>
+                <h1>Kelas Unggulan Kami!</h1>
             </div>
             <div class="row g-4">
                 @forelse ($products as $product)
 
                 <div class="col-md-4 col-lg-3">
-                    <div class="blog-item  rounded p-3 text-center" style="background-color: #4d535e28;">
-                        <div class="d-flex justify-content-center">
-                            <img src="/{{$product->image}}" class="img-fluid rounded" style="width:100%;height:80%">
-                        </div>
+                    <div class="card text-center">
+                            <img src="/{{$product->image}}" class="img-fluid">
                         <div class="blog-content text-start mt-3">
                             <h5>{{$product->title}}</h5>
-                            <span class="card-text fw-bold ">{{$product->price}}</span>
+                            <span class="card-text fw-bold ">Rp {{ number_format($product->price, 0, ',', '.') }}</span>
                             <div class="rounded p-2 mt-1 d-flex align-items-center" style="background-color: white;">
                                 <div class="row g-2">
                                     <div class="col-auto d-flex align-items-center">

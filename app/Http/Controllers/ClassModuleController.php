@@ -19,9 +19,10 @@ class ClassModuleController extends Controller
     public function user($id) 
     {
         $class = Product::findOrFail($id);
+        $class->description = json_decode($class->description, true);
 
         $modules = $class->modules;
-
+        
         return view('pages.class_detail', compact(['modules', 'class']));
     }
 

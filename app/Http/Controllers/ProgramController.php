@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Program;
+use App\Models\Testimonial;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View as FacadeView;
 
@@ -19,7 +20,14 @@ class ProgramController extends Controller
     public function home()
     {
         $programs = Program::all();
-        return view('pages.home', compact('programs'));
+        $testimonials = Testimonial::all();
+        return view('pages.home', compact('programs', 'testimonials'));
+    }
+
+    public function user()
+    {
+        $programs = Program::all();
+        return view('pages.program', compact('programs'));
     }
     
 
@@ -86,7 +94,7 @@ class ProgramController extends Controller
             $image = $request->file('image');
             $imageName = time().'.'.$image->getClientOriginalExtension();
             $image->move(public_path('uploads/programs'), $imageName);
-            $programs->image = 'uplads/programs'.$imageName;
+            $programs->image = 'uploads/programs/'.$imageName;
         }
 
         $data = $programs->save();

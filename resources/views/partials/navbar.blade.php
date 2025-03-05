@@ -1,6 +1,8 @@
 <div class="container-fluid" style="background-color: #F5F7FA">
     <div class="container">
         <nav class="navbar navbar-dark navbar-expand-lg py-2">
+            
+            <img src="img/logo_transparent.png" class="img-fluid mx-1" style="width:20px; height:20px">
             <a href="{{ url('/') }}" class="navbar-brand fw-bold text-primary">
                 Iknow<span class="text-dark">Education</span>
             </a>
@@ -22,6 +24,11 @@
                                     </a>
                                 </li>
                             @endforeach
+                            <li>
+                                <a class="dropdown-item py-2 px-3 rounded" href="{{ url('/program') }}">
+                                    Lihat semua program
+                                </a>
+                            </li>
                         </ul>
                     </div>
                     <!-- Instructors -->

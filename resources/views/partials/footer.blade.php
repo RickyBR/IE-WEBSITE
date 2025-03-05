@@ -2,10 +2,13 @@
     <div class="container pt-5 pb-4">
         <div class="row g-5">
             <div class="col-lg-3 col-md-6">
-                <a href="{{ url('/') }}">
-                    <h1 class="text-primary fw-bold d-block">IKnow<span class="text-dark">Education</span></h1>
+
+                <a href="{{ url('/') }}" class="d-flex align-items-center">
+                    <img src="img/logo_transparent.png" class="img-fluid" style="width:80px; height:50px">
+
+                    <h2 class="text-primary fw-bold d-block">IKnow<span class="text-dark">Education</span></h2>
                 </a>
-                <p class="mt-4 text-light">Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta facere delectus qui placeat inventore consectetur repellendus optio debitis.</p>
+                <p class="mt-4 text-light">Mulai perjalanan cita-citamu bareng iKnow Education. Kita siap jadi jembatan menuju suksesmu.</p>
                 <div class="d-flex hightech-link">
                     <a href="" class="btn-light nav-fill btn btn-square rounded-circle me-2"><i class="fab fa-facebook-f text-primary"></i></a>
                     <a href="" class="btn-light nav-fill btn btn-square rounded-circle me-2"><i class="fab fa-twitter text-primary"></i></a>

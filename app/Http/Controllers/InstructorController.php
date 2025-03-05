@@ -43,7 +43,7 @@ class InstructorController extends Controller
         $data = Instructor::create($validation);
 
         if ($data) {
-            session()->flash('success', 'Program Added Successfully');
+            session()->flash('success', 'Instructor Added Successfully');
             return redirect(route('admin/instructors'));
         } else {
             session()->flash('error', 'Some problem occured');
@@ -81,14 +81,14 @@ class InstructorController extends Controller
             $image = $request->file('image');
             $imageName = time().'.'.$image->getClientOriginalExtension();
             $image->move(public_path('uploads/instructors'), $imageName);
-            $instructors->image = 'uplads/instructors'.$imageName;
+            $instructors->image = 'uploads/instructors/'.$imageName;
         }
 
         $data = $instructors->save();
 
      
         if ($data) {
-            session()->flash('success', 'Program Updated Successfully');
+            session()->flash('success', 'Instructor Updated Successfully');
             return redirect(route('admin/instructors'));
         } else {
             session()->flash('error', 'Some problem occurred');

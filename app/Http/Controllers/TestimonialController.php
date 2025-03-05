@@ -43,7 +43,7 @@ class TestimonialController extends Controller
         $data = Testimonial::create($validation);
 
         if ($data) {
-            session()->flash('success', 'Program Added Successfully');
+            session()->flash('success', 'Testimonial Added Successfully');
             return redirect(route('admin/testimonials'));
         } else {
             session()->flash('error', 'Some problem occured');
@@ -76,14 +76,14 @@ class TestimonialController extends Controller
             $image = $request->file('image');
             $imageName = time().'.'.$image->getClientOriginalExtension();
             $image->move(public_path('uploads/testimonials'), $imageName);
-            $testimonials->image = 'uplads/testimonials'.$imageName;
+            $testimonials->image = 'uploads/testimonials/'.$imageName;
         }
 
         $data = $testimonials->save();
 
      
         if ($data) {
-            session()->flash('success', 'Program Updated Successfully');
+            session()->flash('success', 'Testimonial Updated Successfully');
             return redirect(route('admin/testimonials'));
         } else {
             session()->flash('error', 'Some problem occurred');
