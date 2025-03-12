@@ -48,7 +48,6 @@
             </div>
             <div class="row g-4">
                 @forelse ($products as $product)
-
                 <div class="col-md-4 col-lg-3">
                     <div class="card text-center">
                             <img src="/{{$product->image}}" class="img-fluid">

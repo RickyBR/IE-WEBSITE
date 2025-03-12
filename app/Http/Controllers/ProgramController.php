@@ -26,7 +26,7 @@ class ProgramController extends Controller
 
     public function user()
     {
-        $programs = Program::all();
+        $programs = Program::with('products')->get();
         return view('pages.program', compact('programs'));
     }
     

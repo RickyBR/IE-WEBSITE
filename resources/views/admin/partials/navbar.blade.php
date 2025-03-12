@@ -1,20 +1,75 @@
-<div class="flex">
+<div class="container">
     <!-- Sidebar -->
-    <div class="w-64 bg-gray-800 text-white min-h-screen fixed top-16 left-0">
-                <div class="p-6">
-            <h2 class="text-2xl font-bold">Admin Panel</h2>
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h2>Admin Panel</h2>
         </div>
-        <ul class="space-y-4">
-            <li><a href="programs" class="block px-4 py-2 hover:bg-gray-700 text-white no-underline">Programs</a></li>
-            <li><a href="classes" class="block px-4 py-2 hover:bg-gray-700 text-white no-underline">Class</a></li>
-            <li><a href="modules" class="block px-4 py-2 hover:bg-gray-700 text-white no-underline">Class Modules</a></li>
-            <li><a href="testimonials" class="block px-4 py-2 hover:bg-gray-700 text-white no-underline">Testimonials</a></li>
-            <li><a href="instructors" class="block px-4 py-2 hover:bg-gray-700 text-white no-underline">Instructors</a></li>
+        <ul class="sidebar-links">
+            <li><a href="/admin/programs" class="sidebar-link">Programs</a></li>
+            <li><a href="/admin/classes" class="sidebar-link">Class</a></li>
+            <li><a href="/admin/modules" class="sidebar-link">Class Modules</a></li>
+            <li><a href="/admin/testimonials" class="sidebar-link">Testimonials</a></li>
+            <li><a href="/admin/instructors" class="sidebar-link">Instructors</a></li>
         </ul>
     </div>
 
     <!-- Main Content -->
-    <div class="flex-1 p-6">
+    <div class="main-content">
         @yield('content')
+        <!-- Konten akan ditempatkan di sini -->
     </div>
 </div>
+
+<style>
+    /* Container */
+    .container {
+        display: flex;
+        padding-left: 400px
+    }
+
+    /* Sidebar */
+    .sidebar {
+        width: 250px;
+        background-color: #2d2d2d;
+        color: white;
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        padding-top: 40px;
+    }
+
+    .sidebar-header {
+        padding: 20px;
+        text-align: center;
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    .sidebar-links {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .sidebar-link {
+        display: block;
+        padding: 10px 20px;
+        color: white;
+        text-decoration: none;
+        background-color: #333;
+        margin: 5px 0;
+        border-radius: 4px;
+    }
+
+    .sidebar-link:hover {
+        background-color: #555;
+    }
+
+    /* Main Content */
+    .main-content {
+        margin-left: 250px; /* Sesuaikan dengan lebar sidebar */
+        padding: 20px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+</style>
