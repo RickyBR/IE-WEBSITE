@@ -54,18 +54,7 @@
                         <div class="blog-content text-start mt-3">
                             <h5>{{$product->title}}</h5>
                             <span class="card-text fw-bold ">Rp {{ number_format($product->price, 0, ',', '.') }}</span>
-                            <div class="rounded p-2 mt-1 d-flex align-items-center" style="background-color: white;">
-                                <div class="row g-2">
-                                    <div class="col-auto d-flex align-items-center">
-                                        <i class="fas fa-file-alt me-2"></i> <span>10 Lessons</span>
-                                    </div>
-                                    <div class="col-auto d-flex align-items-center">
-                                        <i class="fas fa-clock me-2"></i> <span>20 Pertemuan</span>
-                                    </div>
-                                </div>
-                                
-                            </div>
-                            <div class="d-flex justify-content-start mt-3">
+                            <div class="d-flex justify-content-start mt-1">
                                 <a href="{{ url('/class/' . $product->id.'/detail') }}" class="btn btn-primary">Read More</a>
                             </div>
                         </div>

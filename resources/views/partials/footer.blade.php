@@ -16,15 +16,6 @@
                     <a href="" class="btn-light nav-fill btn btn-square rounded-circle me-0"><i class="fab fa-linkedin-in text-primary"></i></a>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6">
-                <a href="#" class="h3 text-primary">Short Link</a>
-                <div class="mt-4 d-flex flex-column short-link">
-                    <a href="" class="mb-2 text-white"><i class="fas fa-angle-right text-secondary me-2"></i>About us</a>
-                    <a href="" class="mb-2 text-white"><i class="fas fa-angle-right text-secondary me-2"></i>Contact us</a>
-                    <a href="" class="mb-2 text-white"><i class="fas fa-angle-right text-secondary me-2"></i>Our Program</a>
-                    <a href="" class="mb-2 text-white"><i class="fas fa-angle-right text-secondary me-2"></i>Our Instructor</a>
-                </div>
-            </div>
             <!-- Other footer sections go here -->
         </div>
         <hr class="text-light mt-5 mb-4">

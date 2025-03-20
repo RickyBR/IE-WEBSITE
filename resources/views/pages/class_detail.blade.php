@@ -28,7 +28,7 @@
                 <p class="text-muted">Rp {{ number_format($class->price, 0, ',', '.') }}</p>
                 <p>Kelas ini dirancang untuk membantu Anda meningkatkan keterampilan bahasa Inggris untuk IELTS.</p>
                 <div class="">
-                <a href="#" class="btn btn-primary">Daftar Sekarang</a>
+                <a href="https://wa.me/message/7RPWI4LRAZFJG1" class="btn btn-primary">Daftar Sekarang</a>
                 </div>
             </div>
         </div>

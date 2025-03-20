@@ -38,42 +38,8 @@
             background-color: #e66900;
         }
     </style>
- @forelse ($programs as $program)
-    <div class="container-fluid py-5">
-        <div class="container">
-            <div class="text-center mb-5">
-                <h5 class="text-primary">{{$program->title}}</h5>
-                <h1>{{ $program->description }}</h1>
-            </div>
-        <div class="row g-4">
-            @forelse ($program->products as $product)
-            <div class="col-md-4 col-lg-3">
-                <div class="card text-center ">
-                    <img src="/{{$product->image}}" class="img-fluid">
-                    <h5 class="mt-3">{{$product->title}}</h5>
-                    <p class="text-muted fw-bold">Rp {{ number_format($product->price, 0, ',', '.') }}</p>
-                    <div class="d-flex justify-content-center gap-3">
-                        <div class="d-flex align-items-center">
-                            <i class="fas fa-file-alt me-2"></i> <span>10 Lessons</span>
-                        </div>
-                        <div class="d-flex align-items-center">
-                            <i class="fas fa-clock me-2"></i> <span>20 Pertemuan</span>
-                        </div>
-                    </div>
-                    <a href="https://wa.me/message/7RPWI4LRAZFJG1" class="btn btn-primary mt-3">Daftarkan Sekarang</a>
-                </div>
-            </div>
-            @empty
 
-                @endforelse
-
-            </div>
-        </div>
-    </div>
-@empty
-<p class="text-center">Belum ada program tersedia</p>
-@endforelse
- <!-- Why Choose Us -->
+    <!-- Why Choose Us -->
  <div class="container py-5">
     <div class="text-center mb-5">
         <h5 class="text-primary">Kenapa Harus Pilih iKnow Education?</h5>
@@ -113,6 +79,37 @@
     </div>
 </div>
     <!-- Blog Start -->
+ @forelse ($programs as $program)
+    <div class="container-fluid py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h3 class="text-primary">{{$program->title}}</h3>
+                <h5>{{ $program->description }}</h5>
+            </div>
+        <div class="row g-4">
+            @forelse ($program->products as $product)
+            <div class="col-md-4 col-lg-3">
+                <div class="card text-center ">
+                    <img src="/{{$product->image}}" class="img-fluid">
+                    <h5 class="mt-3">{{$product->title}}</h5>
+                    @if ($program->id !== '9e2bc282-d996-45e1-96b5-193a5ef77ag3') {{-- Ganti 5 dengan ID program yang ingin disembunyikan --}}
+                    <p class="text-muted fw-bold">Rp {{ number_format($product->price, 0, ',', '.') }}</p>
+                @endif
+
+                    <a href="https://wa.me/message/7RPWI4LRAZFJG1" class="btn btn-primary mt-1">Daftarkan Sekarang</a>
+                </div>
+            </div>
+            @empty
+
+                @endforelse
+
+            </div>
+        </div>
+    </div>
+@empty
+<p class="text-center">Belum ada program tersedia</p>
+@endforelse
+ 
     
 
    
