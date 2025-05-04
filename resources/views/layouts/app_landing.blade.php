@@ -3,7 +3,8 @@
 
 <head>
     <meta charset="utf-8">
-    <title>@yield('title', 'HighTech - IT Solutions Website Template')</title>
+    <link rel="icon" href="/img/logo_icon.ico" type="image/png">    <title>@yield('title', 'Iknow Education - Learn a New Skill Everyday, Anytime, and Anywhere')</title>
+    {{-- <img src="img/logo_transparent.png" class="img-fluid mx-1" style="width:20px; height:20px"> --}}
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">

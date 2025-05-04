@@ -1,98 +1,59 @@
 @extends('layouts.app_landing')
 
-@section('title', 'Our Blog')
+@section('title', 'Our Team')
 
 @section('content')
-    <!-- Page Header Start -->
-    {{-- <div class="container-fluid page-header py-5">
-        <div class="container text-center py-5">
-            <h1 class="display-2 text-white mb-4 animated slideInDown">Services</h1>
-            <nav aria-label="breadcrumb animated slideInDown">
-                <ol class="breadcrumb justify-content-center mb-0">
-                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item"><a href="#">Pages</a></li>
-                    <li class="breadcrumb-item" aria-current="page">Services</li>
-                </ol>
-            </nav>
+<!-- Team Section Start -->
+<div class="container-fluid py-5 my-5">
+    <div class="container">
+        <!-- Header -->
+        <div class="text-center mx-auto pb-5 wow fadeIn" data-wow-delay=".3s" style="max-width: 600px;">
+            <h5 class="text-primary">Our Team</h5>
+            <h1 class="fw-bold" style="color: #D46A1F;">Meet our team of experts</h1>
         </div>
-    </div> --}}
-    <!-- Page Header End -->
 
+        <!-- Cards -->
+        <div class="row justify-content-center g-4">
+            @forelse($instructors as $instructor)
+                <div class="col-md-6 col-lg-4 d-flex">
+                    <div class="card border-0 shadow rounded-4 overflow-hidden bg-light position-relative h-100 d-flex flex-column">
+                        <!-- Decorative Tape -->
+                        {{-- <img src="{{ asset('images/tape-top-left.png') }}" alt="tape" 
+                             class="position-absolute" 
+                             style="top: 10px; left: 10px; width: 40px;">
+                        <img src="{{ asset('images/tape-bottom-right.png') }}" alt="tape" 
+                             class="position-absolute" 
+                             style="bottom: 10px; right: 10px; width: 40px; transform: rotate(180deg);"> --}}
 
-    {{-- <!-- Fact Start -->
-    <div class="container-fluid bg-primary py-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 wow fadeIn" data-wow-delay=".1s">
-                    <div class="d-flex counter">
-                        <h1 class="me-3 text-primary counter-value">99</h1>
-                        <h5 class="text-white mt-1">Success in getting happy customer</h5>
-                    </div>
-                </div>
-                <div class="col-lg-3 wow fadeIn" data-wow-delay=".3s">
-                    <div class="d-flex counter">
-                        <h1 class="me-3 text-primary counter-value">25</h1>
-                        <h5 class="text-white mt-1">Thousands of successful business</h5>
-                    </div>
-                </div>
-                <div class="col-lg-3 wow fadeIn" data-wow-delay=".5s">
-                    <div class="d-flex counter">
-                        <h1 class="me-3 text-primary counter-value">120</h1>
-                        <h5 class="text-white mt-1">Total clients who love HighTech</h5>
-                    </div>
-                </div>
-                <div class="col-lg-3 wow fadeIn" data-wow-delay=".7s">
-                    <div class="d-flex counter">
-                        <h1 class="me-3 text-primary counter-value">5</h1>
-                        <h5 class="text-white mt-1">Stars reviews given by satisfied clients</h5>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Fact End --> --}}
-
-
-    <!-- Services Start -->
-    <div class="container-fluid services py-5 my-5">
-        <div class="container py-5">
-             <!-- Team Start -->
-    <div class="container-fluid py-5 mb-5 team">
-        <div class="container">
-            <div class="text-center mx-auto pb-5 wow fadeIn" data-wow-delay=".3s" style="max-width: 600px;">
-                <h5 class="text-primary">Our Team</h5>
-                <h1>Meet our expert Team</h1>
-            </div>
-            <div class="owl-carousel team-carousel wow fadeIn" data-wow-delay=".5s">
-
-                @forelse($instructors as $instructor)
-                <div class="rounded team-item">
-                    <div class="team-content">
-                        <div class="team-img-icon">
-                            <div class="team-img rounded-circle">
-                                <img src=" {{ $instructor->image}}" class="img-fluid w-100 rounded-circle" alt="">
+                        <!-- Image -->
+                        <div class="px-3 pt-3">
+                            <div class="overflow-hidden rounded-3">
+                                <img src="{{ $instructor->image }}" 
+                                     alt="{{ $instructor->name }}" 
+                                     class="img-fluid w-100" 
+                                     style="height: 300px; object-fit: cover; transform: scale(1.12); transition: transform 0.3s ease;">
                             </div>
-                            <div class="team-name text-center py-3">
-                                <h4 class="">{{ $instructor->name }}</h4>
-                                <p class="m-0">{{ $instructor->institution }}</p>
-                                <p class="m-0">LPDP Awardee</p>
-                                <p class="">{{ $instructor->experience }}</p>
+                        </div>
+
+                        <!-- Content -->
+                        <div class="px-4 py-3 text-center mt-auto">
+                            <div class="bg-primary text-white py-2 px-3 rounded-2 fw-semibold fs-5 mb-3">
+                                {{ $instructor->name }}
                             </div>
-                            <div class="team-icon d-flex justify-content-center pb-4">
-                                <a class="btn btn-square btn-primary text-white rounded-circle m-1" href=""><i class="fab fa-instagram"></i></a>
-                            </div>
+                            <ul class="list-unstyled text-start small mb-0">
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Graduate of {{ $instructor->institution }}</li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>LPDP Awardee</li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>{{ $instructor->experience }} experience of teaching IELTS</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
-                @empty
+            @empty
+                <p class="text-center">No instructors available at the moment.</p>
+            @endforelse
+        </div>
+    </div>
+</div>
 
-                @endforelse
-               
-            </div>
-        </div>
-    </div>
-    <!-- Team End -->
-        </div>
-    </div>
-    <!-- Services End -->
+<!-- Team Section End -->
 @endsection
